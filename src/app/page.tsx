@@ -116,51 +116,55 @@ export default function HomePage() {
             </a>
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-4 mt-3">
+        <div className="grid grid-cols-3 gap-[30px] mt-6">
           {campaigns?.data.map((campaign) => (
             <div
               key={campaign.id}
-              className="card-project w-full p-5 border border-gray-500 rounded-20"
+              className="card-project w-full p-4 bg-white border border-gray-200 rounded-20"
             >
               <div className="item">
-                <figure className="item-image">
+                <figure className="item-image h-44 overflow-hidden rounded-20">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={imageUrl(campaign.image_url)}
                     alt=""
-                    className="rounded-20 w-full"
+                    className="rounded-20 w-full h-full object-cover"
                   />
                 </figure>
                 <div className="item-meta">
-                  <h4 className="text-3xl font-medium text-gray-900 mt-5">{campaign.name}</h4>
-                  <p className="text-md font-light text-gray-900 h-12">
+                  <h4 className="text-xl font-semibold text-gray-900 mt-4">{campaign.name}</h4>
+                  <p className="text-sm font-normal text-gray-500 mt-1 truncate">
                     {campaign.short_description}
                   </p>
-                  <div className="relative pt-4 progress-bar">
-                    <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200 h-3 rounded-lg">
-                      <div
-                        style={{
-                          width: `${progressPercentage(campaign.current_amount, campaign.goal_amount)}%`,
-                        }}
-                        className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-purple-progress progress-striped"
-                      />
-                    </div>
-                  </div>
-                  <div className="flex progress-info">
-                    <div>
-                      {progressPercentage(campaign.current_amount, campaign.goal_amount)}%
-                    </div>
-                    <div className="ml-auto font-semibold">
-                      Rp {formatNumber(campaign.goal_amount)}
-                    </div>
-                  </div>
                 </div>
-                <button
-                  onClick={() => router.push(`/projects/${campaign.id}`)}
-                  className="mt-5 button-cta block w-full bg-orange-button hover:bg-green-button text-white font-semibold px-6 py-2 text-lg rounded-full"
-                >
-                  Fund Now
-                </button>
+                <div className="relative h-16 mt-3">
+                  <div className="progress-wrap">
+                    <div className="relative progress-bar">
+                      <div className="overflow-hidden h-2 mb-3 text-xs flex rounded-full bg-gray-200">
+                        <div
+                          style={{
+                            width: `${progressPercentage(campaign.current_amount, campaign.goal_amount)}%`,
+                          }}
+                          className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-purple-progress progress-striped"
+                        />
+                      </div>
+                    </div>
+                    <div className="flex progress-info text-sm">
+                      <div className="text-gray-500">
+                        {progressPercentage(campaign.current_amount, campaign.goal_amount)}%
+                      </div>
+                      <div className="ml-auto font-semibold text-gray-900">
+                        Rp {formatNumber(campaign.goal_amount)}
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => router.push(`/projects/${campaign.id}`)}
+                    className="button-cta absolute left-0 right-0 top-1/2 -translate-y-1/2 bg-orange-button hover:bg-green-button text-white font-semibold px-6 py-3 text-lg rounded-full text-center"
+                  >
+                    Fund Now
+                  </button>
+                </div>
               </div>
             </div>
           ))}

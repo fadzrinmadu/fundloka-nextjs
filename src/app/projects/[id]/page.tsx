@@ -66,9 +66,9 @@ export default function ProjectDetailPage() {
         <div className="flex mt-3">
           <div className="w-3/4 mr-6">
             <div className="bg-white p-3 mb-3 border border-gray-400 rounded-20">
-              <figure className="item-image">
+              <figure className="item-image aspect-video overflow-hidden rounded-20">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={defaultImage} alt="" className="rounded-20 w-full" />
+                <img src={defaultImage} alt="" className="rounded-20 w-full h-full object-cover" />
               </figure>
             </div>
             <div className="flex -mx-2">
@@ -77,13 +77,13 @@ export default function ProjectDetailPage() {
                   key={image.image_url}
                   className="relative w-1/4 bg-white m-2 p-2 border border-gray-400 rounded-20"
                 >
-                  <figure className="item-thumbnail cursor-pointer">
+                  <figure className="item-thumbnail cursor-pointer aspect-square overflow-hidden rounded-20">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={imageUrl(image.image_url)}
                       onClick={() => setDefaultImage(imageUrl(image.image_url))}
                       alt=""
-                      className="rounded-20 w-full"
+                      className="rounded-20 w-full h-full object-cover"
                     />
                   </figure>
                 </div>
