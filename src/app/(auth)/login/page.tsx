@@ -9,7 +9,7 @@ import { login } from '@/store/authSlice';
 export default function LoginPage() {
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const [form, setForm] = useState({ email: 'julia@bwa.com', password: 'password' });
+  const [form, setForm] = useState({ email: '', password: '' });
   const [error, setError] = useState<string | null>(null);
 
   async function userLogin() {

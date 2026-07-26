@@ -10,10 +10,10 @@ export default function RegisterPage() {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const [form, setForm] = useState({
-    name: 'Julia Keeva',
-    occupation: 'Product Designer',
-    email: 'julia@bwa.com',
-    password: 'password',
+    name: '',
+    occupation: '',
+    email: '',
+    password: '',
   });
   const [error, setError] = useState<string | null>(null);
 
