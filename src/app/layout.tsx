@@ -11,7 +11,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'fundloka',
+  title: 'Fundloka - Fund the Best Ideas',
   description: 'Fund the best idea to become a real product and be the contributor',
   icons: { icon: '/favicon.ico' },
 };
