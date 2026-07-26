@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import Navbar from '@/components/Navbar';
@@ -9,6 +10,27 @@ import { useFetch } from '@/lib/useFetch';
 import { Campaign, PaginatedApiResponse } from '@/types/api';
 import { formatNumber, imageUrl, progressPercentage } from '@/lib/format';
 
+const TESTIMONIALS = [
+  {
+    quote: 'Funding at Bucker is very easy and comfortable. Just need to find an idea, click and already funding.',
+    name: 'Shopie Nicole',
+    title: 'Project Manager',
+    icon: '/testimonial-1-icon.png',
+  },
+  {
+    quote: 'Setting up a campaign took less than an hour, and support from backers started coming in almost immediately.',
+    name: 'Alex Putra',
+    title: 'Startup Founder',
+    icon: '/testimonial-2-icon.png',
+  },
+  {
+    quote: 'I love how transparent the funding progress is. It makes trusting a new project so much easier.',
+    name: 'Maria Santoso',
+    title: 'Community Backer',
+    icon: '/testimonial-3-icon.png',
+  },
+];
+
 export default function HomePage() {
   const router = useRouter();
   const { data: campaigns } = useFetch<PaginatedApiResponse<Campaign[]>>(
@@ -16,6 +38,17 @@ export default function HomePage() {
   );
 
   const latestCampaigns = campaigns?.data ?? [];
+
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setActiveTestimonial((current) => (current + 1) % TESTIMONIALS.length);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, [activeTestimonial]);
+
+  const testimonial = TESTIMONIALS[activeTestimonial];
 
   return (
     <div className="landing-page">
@@ -191,33 +224,26 @@ export default function HomePage() {
             <img src="/testimonial-line.svg" alt="" />
           </div>
           <div className="w-8/12 mt-16">
-            <h2 className="text-3xl text-gray-900 font-light">
-              &ldquo;Funding at Bucker is very easy and comfortable. <br />
-              Just need to find an idea, click and already funding.&rdquo;
-            </h2>
-            <div className="testimonial-info mt-8">
-              <div className="name text-xl font-semibold">Shopie Nicole</div>
-              <div className="title text-xl font-light text-gray-400">Project Manager</div>
+            <div key={activeTestimonial} className="testimonial-fade">
+              <h2 className="text-3xl text-gray-900 font-light">&ldquo;{testimonial.quote}&rdquo;</h2>
+              <div className="testimonial-info mt-8">
+                <div className="name text-xl font-semibold">{testimonial.name}</div>
+                <div className="title text-xl font-light text-gray-400">{testimonial.title}</div>
+              </div>
             </div>
             <div className="testimonial-icon mt-10">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/testimonial-1-icon.png"
-                alt=""
-                className="w-20 mr-5 inline-block testimonial-user rounded-full"
-              />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/testimonial-2-icon.png"
-                alt=""
-                className="w-20 mr-5 inline-block testimonial-user rounded-full"
-              />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/testimonial-3-icon.png"
-                alt=""
-                className="w-20 mr-5 inline-block testimonial-user active rounded-full"
-              />
+              {TESTIMONIALS.map((item, index) => (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  key={item.icon}
+                  src={item.icon}
+                  alt=""
+                  onClick={() => setActiveTestimonial(index)}
+                  className={`w-20 mr-5 inline-block testimonial-user rounded-full cursor-pointer ${
+                    index === activeTestimonial ? 'active' : ''
+                  }`}
+                />
+              ))}
             </div>
           </div>
           <div className="w-2/12" />

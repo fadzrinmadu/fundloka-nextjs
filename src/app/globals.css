@@ -125,12 +125,29 @@ footer {
 
 .testimonial-user {
   opacity: 0.4;
+  transition: opacity 250ms ease, border 250ms ease, box-shadow 250ms ease, transform 250ms ease;
 }
 
 .testimonial-user.active {
   opacity: 1;
   border: 5px solid #fff;
   box-shadow: 0 0 0 1px #3b41e3;
+  transform: scale(1.05);
+}
+
+@keyframes testimonial-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.testimonial-fade {
+  animation: testimonial-fade-in 500ms ease;
 }
 
 .list-check li {
