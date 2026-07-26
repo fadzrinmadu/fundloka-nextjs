@@ -199,7 +199,6 @@ export default function ProjectsPage() {
         ) : null}
       </section>
 
-      <div className="cta-clip -mt-20" />
       <CallToAction />
       <Footer />
     </div>

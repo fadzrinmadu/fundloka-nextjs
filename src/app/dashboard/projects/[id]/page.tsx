@@ -4,7 +4,7 @@ import { useRef, useState } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+import FooterSection from '@/components/FooterSection';
 import { useFetch } from '@/lib/useFetch';
 import { api } from '@/lib/api';
 import { ApiResponse, CampaignDetail, CampaignTransaction } from '@/types/api';
@@ -162,9 +162,7 @@ export default function DashboardProjectDetailPage() {
           ))}
         </div>
       </section>
-      <div className="cta-clip -mt-20" />
-      <section className="call-to-action bg-purple-progress pt-64 pb-10" />
-      <Footer />
+      <FooterSection />
     </div>
   );
 }

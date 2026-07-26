@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+import FooterSection from '@/components/FooterSection';
 import { useFetch } from '@/lib/useFetch';
 import { ApiResponse, UserTransaction } from '@/types/api';
 import { formatNumber, imageUrl } from '@/lib/format';
@@ -62,9 +62,7 @@ export default function DashboardTransactionsPage() {
           ))}
         </div>
       </section>
-      <div className="cta-clip -mt-20" />
-      <section className="call-to-action bg-purple-progress pt-64 pb-10" />
-      <Footer />
+      <FooterSection />
     </div>
   );
 }

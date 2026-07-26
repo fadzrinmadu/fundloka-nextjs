@@ -250,7 +250,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <div className="cta-clip -mt-20" />
       <CallToAction />
       <Footer />
     </div>

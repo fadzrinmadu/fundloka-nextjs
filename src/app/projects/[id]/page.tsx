@@ -185,7 +185,6 @@ export default function ProjectDetailPage() {
           <div className="w-1/4 hidden md:block" />
         </div>
       </section>
-      <div className="cta-clip -mt-20" />
       <CallToAction />
       <Footer />
     </div>

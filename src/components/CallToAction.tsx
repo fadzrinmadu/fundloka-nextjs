@@ -6,7 +6,7 @@ export default function CallToAction() {
   const router = useRouter();
 
   return (
-    <section className="call-to-action relative bg-purple-progress pt-32 pb-10">
+    <section className="call-to-action relative bg-purple-progress mt-[120px] pt-32 pb-10">
       <div className="container mx-auto">
         <div className="w-full text-center">
           <h1 className="text-5xl text-white font-semibold">
