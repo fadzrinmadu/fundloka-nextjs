@@ -93,7 +93,7 @@ export default function Navbar() {
               <li>
                 <Link
                   className="bg-white hover:bg-gray-100 border-t hover:text-orange-500 py-2 px-4 block whitespace-nowrap"
-                  href="/dashboard"
+                  href="/dashboard/settings"
                 >
                   Account Settings
                 </Link>
