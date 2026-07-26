@@ -12,6 +12,10 @@ export default function HomePage() {
   const router = useRouter();
   const { data: campaigns } = useFetch<ApiResponse<Campaign[]>>('/api/v1/campaigns');
 
+  const latestCampaigns = campaigns
+    ? [...campaigns.data].sort((a, b) => b.id - a.id).slice(0, 6)
+    : [];
+
   return (
     <div className="landing-page">
       <section className="landing-hero pt-5 relative">
@@ -117,7 +121,7 @@ export default function HomePage() {
           </div>
         </div>
         <div className="grid grid-cols-3 gap-[30px] mt-6">
-          {campaigns?.data.map((campaign) => (
+          {latestCampaigns.map((campaign) => (
             <div
               key={campaign.id}
               className="card-project w-full p-4 bg-white border border-gray-200 rounded-20"
