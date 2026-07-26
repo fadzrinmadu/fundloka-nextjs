@@ -1,20 +1,21 @@
 'use client';
 
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CallToAction from '@/components/CallToAction';
 import { useFetch } from '@/lib/useFetch';
-import { ApiResponse, Campaign } from '@/types/api';
+import { Campaign, PaginatedApiResponse } from '@/types/api';
 import { formatNumber, imageUrl, progressPercentage } from '@/lib/format';
 
 export default function HomePage() {
   const router = useRouter();
-  const { data: campaigns } = useFetch<ApiResponse<Campaign[]>>('/api/v1/campaigns');
+  const { data: campaigns } = useFetch<PaginatedApiResponse<Campaign[]>>(
+    '/api/v1/campaigns?sort=newest&limit=6&page=1'
+  );
 
-  const latestCampaigns = campaigns
-    ? [...campaigns.data].sort((a, b) => b.id - a.id).slice(0, 6)
-    : [];
+  const latestCampaigns = campaigns?.data ?? [];
 
   return (
     <div className="landing-page">
@@ -115,9 +116,9 @@ export default function HomePage() {
             </h2>
           </div>
           <div className="w-auto mt-5">
-            <a className="text-gray-900 hover:underline text-md font-medium" href="">
+            <Link className="text-gray-900 hover:underline text-md font-medium" href="/projects">
               View All
-            </a>
+            </Link>
           </div>
         </div>
         <div className="grid grid-cols-3 gap-[30px] mt-6">

@@ -47,9 +47,10 @@
   transform-origin: top left;
 }
 
-/* Dashboard / project detail header bands */
+/* Dashboard / project detail / projects-list header bands */
 .dashboard-header,
-.project-header {
+.project-header,
+.projects-header {
   background-image: url('/auth-background.svg');
   background-position: top right;
   background-repeat: no-repeat;

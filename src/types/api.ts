@@ -7,6 +7,18 @@ export interface ApiResponse<T> {
   data: T;
 }
 
+export interface Pagination {
+  page: number;
+  limit: number;
+  total: number;
+  totalPages: number;
+  hasMore: boolean;
+}
+
+export interface PaginatedApiResponse<T> extends ApiResponse<T> {
+  pagination: Pagination;
+}
+
 export interface User {
   id: number;
   name: string;
