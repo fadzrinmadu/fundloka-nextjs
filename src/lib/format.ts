@@ -11,5 +11,5 @@ export function imageUrl(path?: string): string {
 
 export function progressPercentage(current: number, goal: number): number {
   if (!goal) return 0;
-  return (current / goal) * 100;
+  return Math.round((current / goal) * 100);
 }

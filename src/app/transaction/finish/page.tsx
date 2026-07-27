@@ -1,9 +1,24 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { Suspense, useEffect, useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { api } from '@/lib/api';
+import { ApiResponse, CreatedTransaction } from '@/types/api';
 
-export default function TransactionFinishPage() {
+function TransactionFinishContent() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const orderId = searchParams.get('order_id');
+  const [syncing, setSyncing] = useState(!!orderId);
+
+  useEffect(() => {
+    if (!orderId) return;
+
+    api
+      .post<ApiResponse<CreatedTransaction>>(`/api/v1/transactions/${orderId}/sync`)
+      .catch((err) => console.error(err))
+      .finally(() => setSyncing(false));
+  }, [orderId]);
 
   return (
     <div className="container mx-auto min-h-screen flex justify-center items-center py-10">
@@ -14,9 +29,15 @@ export default function TransactionFinishPage() {
         </div>
         <h2 className="font-medium mb-3 text-3xl text-center">Yeay! You are super</h2>
         <p className="text-center font-light">
-          Your money has ben transferred
-          <br />
-          into company&apos;s account
+          {syncing ? (
+            'Verifying your payment...'
+          ) : (
+            <>
+              Your money has ben transferred
+              <br />
+              into company&apos;s account
+            </>
+          )}
         </p>
         <div className="mb-4 mt-6">
           <div className="mb-3">
@@ -38,5 +59,13 @@ export default function TransactionFinishPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function TransactionFinishPage() {
+  return (
+    <Suspense fallback={null}>
+      <TransactionFinishContent />
+    </Suspense>
   );
 }

@@ -23,6 +23,7 @@ export default function ProjectDetailPage() {
 
   const [defaultImage, setDefaultImage] = useState('');
   const [amount, setAmount] = useState<number | ''>('');
+  const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
     if (campaign) {
@@ -31,8 +32,9 @@ export default function ProjectDetailPage() {
   }, [campaign]);
 
   async function fund() {
-    if (!amount || amount <= 0) return;
+    if (!amount || amount <= 0 || submitting) return;
 
+    setSubmitting(true);
     try {
       const response = await api.post<ApiResponse<CreatedTransaction>>('/api/v1/transactions', {
         amount,
@@ -41,6 +43,7 @@ export default function ProjectDetailPage() {
       window.location.href = response.data.data.payment_url || '/transaction/error';
     } catch (err) {
       console.error(err);
+      setSubmitting(false);
       router.push('/transaction/error');
     }
   }
@@ -144,10 +147,10 @@ export default function ProjectDetailPage() {
                   />
                   <button
                     onClick={fund}
-                    disabled={!amount || amount <= 0}
+                    disabled={!amount || amount <= 0 || submitting}
                     className="mt-3 button-cta block w-full bg-orange-button hover:bg-green-button text-white font-medium px-6 py-3 text-md rounded-full disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Fund Now
+                    {submitting ? 'Processing...' : 'Fund Now'}
                   </button>
                 </>
               ) : (
