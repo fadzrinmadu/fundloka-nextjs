@@ -108,7 +108,7 @@ export default function ProjectDetailPage() {
                   <img
                     src={campaign.data.user.image_url ? imageUrl(campaign.data.user.image_url) : '/avatar.jpg'}
                     alt=""
-                    className="w-full inline-block rounded-full"
+                    className="w-full aspect-square inline-block rounded-full object-cover"
                   />
                 </div>
                 <div className="w-3/4 ml-5 mt-1">

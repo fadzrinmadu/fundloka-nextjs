@@ -142,7 +142,11 @@ export default function Navbar() {
               >
                 {user?.image_url ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={imageUrl(user.image_url)} alt="" className="h-8 rounded-full mr-2" />
+                  <img
+                    src={imageUrl(user.image_url)}
+                    alt=""
+                    className="w-8 h-8 rounded-full object-cover mr-2"
+                  />
                 ) : null}
                 <span className="mr-1">{user?.name}</span>
                 <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
