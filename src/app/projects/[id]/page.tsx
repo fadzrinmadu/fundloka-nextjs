@@ -22,7 +22,7 @@ export default function ProjectDetailPage() {
   );
 
   const [defaultImage, setDefaultImage] = useState('');
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState<number | ''>('');
 
   useEffect(() => {
     if (campaign) {
@@ -31,6 +31,8 @@ export default function ProjectDetailPage() {
   }, [campaign]);
 
   async function fund() {
+    if (!amount || amount <= 0) return;
+
     try {
       const response = await api.post<ApiResponse<CreatedTransaction>>('/api/v1/transactions', {
         amount,
@@ -127,15 +129,23 @@ export default function ProjectDetailPage() {
                 <>
                   <input
                     type="number"
+                    min={1}
+                    step={1}
                     className="border border-gray-500 block w-full px-6 py-3 mt-4 rounded-full text-gray-800 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline"
                     placeholder="Amount in Rp"
                     value={amount}
-                    onChange={(e) => setAmount(Number(e.target.value))}
+                    onChange={(e) => {
+                      const raw = e.target.value.replace(/^0+(?=\d)/, '');
+                      e.target.value = raw;
+                      setAmount(raw === '' ? '' : Number(raw));
+                    }}
+                    onWheel={(e) => e.currentTarget.blur()}
                     onKeyUp={(e) => e.key === 'Enter' && fund()}
                   />
                   <button
                     onClick={fund}
-                    className="mt-3 button-cta block w-full bg-orange-button hover:bg-green-button text-white font-medium px-6 py-3 text-md rounded-full"
+                    disabled={!amount || amount <= 0}
+                    className="mt-3 button-cta block w-full bg-orange-button hover:bg-green-button text-white font-medium px-6 py-3 text-md rounded-full disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     Fund Now
                   </button>
