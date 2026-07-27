@@ -54,7 +54,7 @@ export default function EditCampaignPage() {
     return (
       <div className="project-page">
         <section className="dashboard-header pt-5">
-          <div className="container mx-auto relative">
+          <div className="container mx-auto relative px-5 md:px-8 lg:px-0">
             <Navbar />
           </div>
         </section>
@@ -65,24 +65,24 @@ export default function EditCampaignPage() {
   return (
     <div className="project-page">
       <section className="dashboard-header pt-5">
-        <div className="container mx-auto relative">
+        <div className="container mx-auto relative px-5 md:px-8 lg:px-0">
           <Navbar />
         </div>
       </section>
-      <section className="container mx-auto pt-8">
+      <section className="container mx-auto px-5 md:px-8 lg:px-0 pt-8">
         <div className="flex justify-between items-center">
           <div className="w-full mr-6">
-            <h2 className="text-4xl text-gray-900 mb-2 font-medium">Dashboard</h2>
+            <h2 className="text-3xl sm:text-4xl text-gray-900 mb-2 font-medium">Dashboard</h2>
           </div>
         </div>
-        <div className="flex justify-between items-center">
-          <div className="w-3/4 mr-6">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
+          <div>
             <h3 className="text-2xl text-gray-900 mb-4">Edit Campaign &quot;{campaign.data.name}&quot;</h3>
           </div>
-          <div className="w-1/4 text-right">
+          <div>
             <button
               onClick={save}
-              className="bg-green-button hover:bg-green-button text-white font-bold px-4 py-1 rounded inline-flex items-center"
+              className="bg-green-button hover:bg-green-button text-white font-bold px-4 py-2 rounded inline-flex items-center justify-center w-full sm:w-auto"
             >
               Save
             </button>
@@ -90,7 +90,7 @@ export default function EditCampaignPage() {
         </div>
         <div className="block mb-2">
           <div className="w-full lg:max-w-full lg:flex mb-4">
-            <div className="w-full border border-gray-400 bg-white rounded p-8 flex flex-col justify-between leading-normal">
+            <div className="w-full border border-gray-400 bg-white rounded p-5 sm:p-8 flex flex-col justify-between leading-normal">
               <form className="w-full" onSubmit={(e) => e.preventDefault()}>
                 <div className="flex flex-wrap -mx-3 mb-6">
                   <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">

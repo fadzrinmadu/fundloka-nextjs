@@ -52,7 +52,7 @@ export default function DashboardProjectDetailPage() {
     return (
       <div className="project-page">
         <section className="dashboard-header pt-5">
-          <div className="container mx-auto relative">
+          <div className="container mx-auto relative px-5 md:px-8 lg:px-0">
             <Navbar />
           </div>
         </section>
@@ -63,24 +63,24 @@ export default function DashboardProjectDetailPage() {
   return (
     <div className="project-page">
       <section className="dashboard-header pt-5">
-        <div className="container mx-auto relative">
+        <div className="container mx-auto relative px-5 md:px-8 lg:px-0">
           <Navbar />
         </div>
       </section>
-      <section className="container mx-auto pt-8">
+      <section className="container mx-auto px-5 md:px-8 lg:px-0 pt-8">
         <div className="flex justify-between items-center">
           <div className="w-full mr-6">
-            <h2 className="text-4xl text-gray-900 mb-2 font-medium">Dashboard</h2>
+            <h2 className="text-3xl sm:text-4xl text-gray-900 mb-2 font-medium">Dashboard</h2>
           </div>
         </div>
-        <div className="flex justify-between items-center">
-          <div className="w-3/4 mr-6">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
+          <div>
             <h3 className="text-2xl text-gray-900 mb-4">Campaign Details</h3>
           </div>
-          <div className="w-1/4 text-right">
+          <div>
             <Link
               href={`/dashboard/projects/${campaign.data.id}/edit`}
-              className="bg-green-button hover:bg-green-button text-white font-bold px-4 py-1 rounded inline-flex items-center"
+              className="bg-green-button hover:bg-green-button text-white font-bold px-4 py-2 rounded inline-flex items-center justify-center w-full sm:w-auto"
             >
               Edit
             </Link>
@@ -88,7 +88,7 @@ export default function DashboardProjectDetailPage() {
         </div>
         <div className="block mb-2">
           <div className="w-full lg:max-w-full lg:flex mb-4">
-            <div className="border border-gray-400 bg-white rounded p-8 flex flex-col justify-between leading-normal">
+            <div className="border border-gray-400 bg-white rounded p-5 sm:p-8 flex flex-col justify-between leading-normal">
               <div>
                 <div className="text-gray-900 font-bold text-xl mb-2">{campaign.data.name}</div>
                 <p className="text-gray-700 text-base">{campaign.data.short_description}</p>
@@ -110,16 +110,16 @@ export default function DashboardProjectDetailPage() {
             </div>
           </div>
         </div>
-        <div className="flex justify-between items-center">
-          <div className="w-2/4 mr-6">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
+          <div>
             <h3 className="text-2xl text-gray-900 mb-4 mt-5">Gallery</h3>
           </div>
-          <div className="w-2/4 text-right">
+          <div className="flex flex-wrap items-center gap-2">
             <input
               type="file"
               ref={fileInputRef}
               onChange={selectFile}
-              className="border p-1 rounded overflow-hidden"
+              className="border p-1 rounded overflow-hidden max-w-full"
             />
             <button
               onClick={upload}
@@ -129,7 +129,7 @@ export default function DashboardProjectDetailPage() {
             </button>
           </div>
         </div>
-        <div className="grid grid-cols-4 gap-4 -mx-2">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 -mx-2">
           {campaign.data.images.map((image) => (
             <div
               key={image.image_url}
@@ -143,14 +143,14 @@ export default function DashboardProjectDetailPage() {
           ))}
         </div>
         <div className="flex justify-between items-center">
-          <div className="w-3/4 mr-6">
+          <div>
             <h3 className="text-2xl text-gray-900 mb-4 mt-5">Transaction History</h3>
           </div>
         </div>
         <div className="block mb-2">
           {transactions?.data.map((transaction) => (
             <div key={transaction.id} className="w-full lg:max-w-full lg:flex mb-4">
-              <div className="w-full border border-gray-400 lg:border-gray-400 bg-white rounded p-8 flex flex-col justify-between leading-normal">
+              <div className="w-full border border-gray-400 lg:border-gray-400 bg-white rounded p-5 sm:p-8 flex flex-col justify-between leading-normal">
                 <div>
                   <div className="text-gray-900 font-bold text-xl mb-1">{transaction.name}</div>
                   <p className="text-sm text-gray-600 flex items-center mb-2">

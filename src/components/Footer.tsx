@@ -34,8 +34,8 @@ export default function Footer() {
             <ul className="font-light">
               <li className="mb-3">+021 2208 1996</li>
               <li className="mb-3">KBP, Bandung</li>
-              <li className="mb-3">No.12 (Backer)</li>
-              <li className="mb-3">support@backer.id</li>
+              <li className="mb-3">No.12 (Fundloka)</li>
+              <li className="mb-3">support@fundloka.id</li>
             </ul>
           </div>
         </div>

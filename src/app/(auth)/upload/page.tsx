@@ -36,7 +36,7 @@ export default function UploadAvatarPage() {
   }
 
   return (
-    <div className="container mx-auto h-screen flex justify-center items-center">
+    <div className="container mx-auto min-h-screen flex justify-center items-center py-10">
       <div className="w-full lg:w-1/3 px-10 lg:px-0">
         <div className="flex justify-center items-center mx-auto mb-4 w-40">
           <div className="relative">

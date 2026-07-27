@@ -24,7 +24,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="h-screen flex justify-center items-center">
+    <div className="min-h-screen flex justify-center items-center py-10">
       <div className="hidden md:block lg:w-1/3 bg-white h-full rounded-tr-lg rounded-br-lg auth-background-login" />
       <div className="w-auto md:w-2/4 lg:w-2/3 flex justify-center items-center">
         <div className="w-full lg:w-1/2 px-10 lg:px-0">

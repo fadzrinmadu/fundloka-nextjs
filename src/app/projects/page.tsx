@@ -95,12 +95,12 @@ export default function ProjectsPage() {
   return (
     <div className="project-page">
       <section className="projects-header pt-5">
-        <div className="container mx-auto relative">
+        <div className="container mx-auto relative px-5 md:px-8 lg:px-0">
           <Navbar />
         </div>
       </section>
 
-      <section className="container mx-auto pt-16">
+      <section className="container mx-auto px-5 md:px-8 lg:px-0 pt-16">
         <div className="flex justify-between items-center mb-8">
           <div className="w-auto">
             <h2 className="text-3xl text-gray-900 mb-2">All Projects</h2>

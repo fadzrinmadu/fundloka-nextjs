@@ -6,7 +6,7 @@ export default function TransactionErrorPage() {
   const router = useRouter();
 
   return (
-    <div className="container mx-auto h-screen flex justify-center items-center">
+    <div className="container mx-auto min-h-screen flex justify-center items-center py-10">
       <div className="w-full lg:w-1/3 px-10 lg:px-0">
         <h2 className="font-medium mb-3 text-3xl text-center">Oops. Something wrong!</h2>
         <p className="text-center font-light">

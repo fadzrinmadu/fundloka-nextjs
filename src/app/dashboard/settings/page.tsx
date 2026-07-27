@@ -148,14 +148,14 @@ export default function AccountSettingsPage() {
   return (
     <div className="project-page">
       <section className="dashboard-header pt-5">
-        <div className="container mx-auto relative">
+        <div className="container mx-auto relative px-5 md:px-8 lg:px-0">
           <Navbar />
         </div>
       </section>
-      <section className="container mx-auto pt-8">
+      <section className="container mx-auto px-5 md:px-8 lg:px-0 pt-8">
         <div className="flex justify-between items-center mb-6">
           <div>
-            <h2 className="text-4xl text-gray-900 mb-2 font-medium">Account Settings</h2>
+            <h2 className="text-3xl sm:text-4xl text-gray-900 mb-2 font-medium">Account Settings</h2>
             <Link href="/dashboard" className="text-gray-500 hover:text-gray-800 text-sm">
               &larr; Back to Dashboard
             </Link>
@@ -166,7 +166,7 @@ export default function AccountSettingsPage() {
           <div className={cardClass}>
             <h3 className="text-xl font-semibold text-gray-900 mb-4">Avatar</h3>
             <StatusAlert status={avatarStatus} />
-            <div className="flex items-center gap-6">
+            <div className="flex flex-wrap items-center gap-6">
               <div className="cursor-pointer" onClick={() => fileInputRef.current?.click()}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img

@@ -57,14 +57,14 @@ export default function DashboardTransactionsPage() {
   return (
     <div className="project-page">
       <section className="dashboard-header pt-5">
-        <div className="container mx-auto relative">
+        <div className="container mx-auto relative px-5 md:px-8 lg:px-0">
           <Navbar />
         </div>
       </section>
-      <section className="container mx-auto pt-8">
+      <section className="container mx-auto px-5 md:px-8 lg:px-0 pt-8">
         <div className="flex justify-between items-center mb-6">
-          <div className="w-3/4 mr-6">
-            <h2 className="text-4xl text-gray-900 mb-2 font-medium">Dashboard</h2>
+          <div>
+            <h2 className="text-3xl sm:text-4xl text-gray-900 mb-2 font-medium">Dashboard</h2>
             <ul className="flex items-center gap-8 border-b border-gray-200 mt-4">
               <li>
                 <Link
