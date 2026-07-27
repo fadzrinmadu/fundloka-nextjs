@@ -64,7 +64,7 @@ export default function CreateCampaignPage() {
                     <input
                       className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                       type="text"
-                      placeholder="Contoh: Demi Gunpla Demi Istri"
+                      placeholder="Example: For Gunpla, For My Wife"
                       value={campaign.name}
                       onChange={(e) => setCampaign({ ...campaign, name: e.target.value })}
                     />
@@ -76,7 +76,7 @@ export default function CreateCampaignPage() {
                     <input
                       className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                       type="number"
-                      placeholder="Contoh: 200000"
+                      placeholder="Example: 200000"
                       value={campaign.goal_amount}
                       onChange={(e) =>
                         setCampaign({ ...campaign, goal_amount: Number(e.target.value) })
@@ -90,7 +90,7 @@ export default function CreateCampaignPage() {
                     <input
                       className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                       type="text"
-                      placeholder="Deskripsi singkat mengenai projectmu"
+                      placeholder="A short description about your project"
                       value={campaign.short_description}
                       onChange={(e) =>
                         setCampaign({ ...campaign, short_description: e.target.value })
@@ -104,7 +104,7 @@ export default function CreateCampaignPage() {
                     <input
                       className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                       type="text"
-                      placeholder="Contoh: Ayam, Nasi Goreng, Piring"
+                      placeholder="Example: Chicken, Fried Rice, Plate"
                       value={campaign.perks}
                       onChange={(e) => setCampaign({ ...campaign, perks: e.target.value })}
                     />
@@ -115,7 +115,7 @@ export default function CreateCampaignPage() {
                     </label>
                     <textarea
                       className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                      placeholder="Isi deskripsi panjang untuk projectmu"
+                      placeholder="Write a detailed description for your project"
                       value={campaign.description}
                       onChange={(e) => setCampaign({ ...campaign, description: e.target.value })}
                     />
