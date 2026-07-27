@@ -137,7 +137,7 @@ export default function ProjectsPage() {
             {search ? `No projects found for "${search}".` : 'No projects available yet.'}
           </div>
         ) : (
-          <div className="grid grid-cols-3 gap-[30px]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-[30px]">
             {campaigns.map((campaign) => (
               <div
                 key={campaign.id}
@@ -158,7 +158,7 @@ export default function ProjectsPage() {
                       {campaign.short_description}
                     </p>
                   </div>
-                  <div className="relative h-16 mt-3">
+                  <div className="mt-3">
                     <div className="progress-wrap">
                       <div className="relative progress-bar">
                         <div className="overflow-hidden h-2 mb-3 text-xs flex rounded-full bg-gray-200">
@@ -181,7 +181,7 @@ export default function ProjectsPage() {
                     </div>
                     <button
                       onClick={() => router.push(`/projects/${campaign.id}`)}
-                      className="button-cta absolute left-0 right-0 top-1/2 -translate-y-1/2 bg-orange-button hover:bg-green-button text-white font-semibold px-6 py-3 text-lg rounded-full text-center"
+                      className="button-cta block w-full mt-4 bg-orange-button hover:bg-green-button text-white font-semibold px-6 py-3 text-lg rounded-full text-center"
                     >
                       Fund Now
                     </button>

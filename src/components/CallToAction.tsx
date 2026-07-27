@@ -7,9 +7,9 @@ export default function CallToAction() {
 
   return (
     <section className="call-to-action relative bg-purple-progress mt-[120px] pt-32 pb-10">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-5">
         <div className="w-full text-center">
-          <h1 className="text-5xl text-white font-semibold">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl text-white font-semibold">
             Easy way to funding
             <br />
             best idea and innovation

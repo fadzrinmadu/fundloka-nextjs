@@ -1,9 +1,9 @@
 export default function Footer() {
   return (
     <footer className="bg-purple-progress py-20 text-white text-lg">
-      <div className="container mx-auto">
-        <div className="sm:flex mb-4">
-          <div className="sm:w-1/2 sm:mt-0 mt-8 h-auto">
+      <div className="container mx-auto px-5 md:px-8 lg:px-0">
+        <div className="md:flex mb-4">
+          <div className="md:w-1/2 md:mt-0 mt-8 h-auto">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/logo-footer.svg" alt="" className="mb-3" />
             <p className="font-light">
@@ -11,7 +11,7 @@ export default function Footer() {
               bright ideas
             </p>
           </div>
-          <div className="sm:w-1/4 h-auto">
+          <div className="md:w-1/4 mt-8 md:mt-0 h-auto">
             <div className="mb-8 font-bold">Explore</div>
             <ul className="font-light">
               <li className="mb-3">Our Services</li>
@@ -20,7 +20,7 @@ export default function Footer() {
               <li className="mb-3">Shareholder</li>
             </ul>
           </div>
-          <div className="sm:w-1/4 h-auto">
+          <div className="md:w-1/4 mt-8 md:mt-0 h-auto">
             <div className="mb-8 font-bold">Investor</div>
             <ul className="font-light">
               <li className="mb-3">My Account</li>
@@ -29,7 +29,7 @@ export default function Footer() {
               <li className="mb-3">Withdrawl</li>
             </ul>
           </div>
-          <div className="sm:w-1/4 h-auto">
+          <div className="md:w-1/4 mt-8 md:mt-0 h-auto">
             <div className="mb-8 font-bold">Office</div>
             <ul className="font-light">
               <li className="mb-3">+021 2208 1996</li>
