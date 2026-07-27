@@ -71,11 +71,11 @@ export default function ProjectDetailPage() {
                 <img src={defaultImage} alt="" className="rounded-20 w-full h-full object-cover" />
               </figure>
             </div>
-            <div className="flex flex-wrap -mx-2">
+            <div className="gallery-scroll flex flex-nowrap gap-3 overflow-x-auto pb-2 snap-x snap-mandatory">
               {campaign.data.images.map((image) => (
                 <div
                   key={image.image_url}
-                  className="relative w-1/4 bg-white m-2 p-2 border border-gray-400 rounded-20"
+                  className="relative shrink-0 w-[18%] min-w-[84px] snap-start bg-white p-2 border border-gray-400 rounded-20"
                 >
                   <figure className="item-thumbnail cursor-pointer aspect-square overflow-hidden rounded-20">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
