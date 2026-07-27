@@ -1,9 +1,11 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import { useAppSelector } from '@/store/hooks';
 
 export default function CallToAction() {
   const router = useRouter();
+  const loggedIn = useAppSelector((state) => state.auth.loggedIn);
 
   return (
     <section className="call-to-action relative bg-purple-progress mt-[120px] pt-32 pb-10">
@@ -15,7 +17,7 @@ export default function CallToAction() {
             best idea and innovation
           </h1>
           <button
-            onClick={() => router.push('/register')}
+            onClick={() => router.push(loggedIn ? '/dashboard' : '/register')}
             className="inline-block bg-orange-button hover:bg-green-button text-white font-semibold px-6 py-4 mt-8 text-lg rounded-full"
           >
             Getting Started
