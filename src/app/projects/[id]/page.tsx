@@ -101,7 +101,7 @@ export default function ProjectDetailPage() {
                 <div className="w-1/4">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={imageUrl(campaign.data.user.image_url)}
+                    src={campaign.data.user.image_url ? imageUrl(campaign.data.user.image_url) : '/avatar.jpg'}
                     alt=""
                     className="w-full inline-block rounded-full"
                   />
